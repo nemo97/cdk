@@ -57,5 +57,10 @@ export class CdkStack extends cdk.Stack {
     const testingStage = pipeline.addStage(new PipelineAppStage(this, 'YahooLab',{
       env: props?.env
     }));
+
+
+    const testingStage1 = pipeline.addStage(new PipelineAppStage(this, 'GmailLab',{
+      env: { account: '123456789012', region: 'us-west-2' }
+    }));
   }
 }
