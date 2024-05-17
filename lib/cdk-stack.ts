@@ -50,9 +50,7 @@ export class CdkStack extends cdk.Stack {
 //         commands: ['export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain matson --domain-owner 196787314311 --region us-west-2 --query authorizationToken --output text)','ls','java --version','export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto','mvn --version','cd GemsOpsSpanApiLambda','mvn clean install', 'cd ../aws','npm ci', 'npx cdk synth']       ,
         commands: ['ls -ltr','npm ci', 'npx cdk synth'],
         primaryOutputDirectory : 'cdk.out',         
-      }),  
-      
-      crossAccountKeys : true    
+      }),          
     });
     
 
