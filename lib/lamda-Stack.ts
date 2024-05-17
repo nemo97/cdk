@@ -22,14 +22,14 @@ export class lamdaStack extends cdk.Stack{
             handler : "hello.handler"
            }) ;
 
-           const gateway = new apigw.LambdaRestApi(this, "Endpoint", {
-                 handler: hello,
-               });
+        //    const gateway = new apigw.LambdaRestApi(this, "Endpoint", {
+        //          handler: hello,
+        //        });
 
 
-             this.hcEndpoint = new cdk.CfnOutput(this, "GatewayUrl", {
-                 value: gateway.url,
-               });
+        //      this.hcEndpoint = new cdk.CfnOutput(this, "GatewayUrl", {
+        //          value: gateway.url,
+        //        });
     
     }       
 }

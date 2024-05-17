@@ -8,8 +8,8 @@ export class PipelineAppStage extends cdk.Stage {
     constructor(scope: Construct, id: string, props?: cdk.StageProps){
         super(scope, id, props);
         const awscicdlamdaStack = new lamdaStack(this,'LamdaStack')
-        const hcEndpoint = awscicdlamdaStack.hcEndpoint;
+        //const hcEndpoint = awscicdlamdaStack.hcEndpoint;
 //
-        console.log("hcEndpoint",hcEndpoint);
+        //console.log("hcEndpoint",hcEndpoint);
     }
 }
