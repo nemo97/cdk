@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import {lamdaStack} from './lamda-stack';
+import {lamdaStack} from './lamda-stack1';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 
 export class PipelineAppStage extends cdk.Stage {
