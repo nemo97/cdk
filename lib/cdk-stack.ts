@@ -18,7 +18,7 @@ export class CdkStack extends cdk.Stack {
 
 
     const pipeline = new CodePipeline(this, 'Pipeline', {
-      pipelineName: 'gems-ops-api-pipeline',
+      pipelineName: 'api-pipeline',
       codeBuildDefaults : {
         buildEnvironment : {
           buildImage : codeBuild.LinuxBuildImage.STANDARD_7_0
@@ -43,7 +43,7 @@ export class CdkStack extends cdk.Stack {
       },
       synth: new ShellStep('Synth', {        
         //input: CodePipelineSource.gitHub('MatsonInc/Ent-Ops-API', 'cdk', { authentication : cdk.SecretValue.secretsManager('MyCDK_auth')}),
-        input: CodePipelineSource.gitHub('MatsonInc/gems-ops-api', 'cdk_sample', { authentication : cdk.SecretValue.secretsManager('MyCDK_auth')}),
+        input: CodePipelineSource.gitHub('nemo97/cdk', 'master', { authentication : cdk.SecretValue.secretsManager('MyCDK_auth')}),
         //input: CodePipelineSource.gitHub('MatsonInc/Ent-Ops-API', 'main', { authentication : cdk.SecretValue.secretsManager('MyPipeline_Auth')}),
         //input: CodePipelineSource.gitHub('subhasatmatson/test_cdk', 'main', { authentication : cdk.SecretValue.secretsManager('MyPipeline_Auth')}),        
         installCommands: ['update-java-alternatives --set  /usr/lib/jvm/java-21-amazon-corretto'],
