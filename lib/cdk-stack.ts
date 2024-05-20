@@ -41,13 +41,9 @@ export class CdkStack extends cdk.Stack {
           },
         }),
       },
-      synth: new ShellStep('Synth', {        
-        //input: CodePipelineSource.gitHub('MatsonInc/Ent-Ops-API', 'cdk', { authentication : cdk.SecretValue.secretsManager('MyCDK_auth')}),
-        input: CodePipelineSource.gitHub('nemo97/cdk', 'master', { authentication : cdk.SecretValue.secretsManager('MyCDK_auth')}),
-        //input: CodePipelineSource.gitHub('MatsonInc/Ent-Ops-API', 'main', { authentication : cdk.SecretValue.secretsManager('MyPipeline_Auth')}),
-        //input: CodePipelineSource.gitHub('subhasatmatson/test_cdk', 'main', { authentication : cdk.SecretValue.secretsManager('MyPipeline_Auth')}),        
+      synth: new ShellStep('Synth', {                
+        input: CodePipelineSource.gitHub('nemo97/cdk', 'master', { authentication : cdk.SecretValue.secretsManager('MyCDK_auth')}),        
         installCommands: ['update-java-alternatives --set  /usr/lib/jvm/java-21-amazon-corretto'],
-//         commands: ['export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token --domain matson --domain-owner 196787314311 --region us-west-2 --query authorizationToken --output text)','ls','java --version','export JAVA_HOME=/usr/lib/jvm/java-21-amazon-corretto','mvn --version','cd GemsOpsSpanApiLambda','mvn clean install', 'cd ../aws','npm ci', 'npx cdk synth']       ,
         commands: ['ls -ltr','npm ci', 'npx cdk synth'],
         primaryOutputDirectory : 'cdk.out',         
       }),        

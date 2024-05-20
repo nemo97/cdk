@@ -1,0 +1,49 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+            "cloudformation:*",
+          "apigateway:*",
+          "cloudwatch:*",
+          "lambda:*",
+          "logs:*",
+          "s3:*",
+          "ssm:*",
+          "kms:*",
+          "dynamodb:*",
+          "events:*",
+          "sqs:*",
+          "sts:*"          
+        ],
+        "Resource": "*",
+        "Condition": {
+          "StringEquals": {
+            "aws:RequestedRegion": "us-west-2"
+          }
+        }
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "cloudfront:*"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "iam:*Role*",
+          "iam:GetPolicy",
+          "iam:CreatePolicy",
+          "iam:DeletePolicy",
+          "iam:*PolicyVersion*"
+        ],
+        "NotResource": [
+          "arn:aws:iam::*:role/cdk-*",
+          "arn:aws:iam::*:policy/cdkExecutionPolicy"
+        ]
+      }
+    ]
+  }
